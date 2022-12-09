@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { AddCategory } from "./components/addCategory"
 
 export const GifApp = () => {
 
@@ -8,10 +9,21 @@ export const GifApp = () => {
       setCategories([...categories, 'Valorant'])
   }
 
+  const onAddCategory = (newCategory) => {
+    
+    if( categories.includes(newCategory) ) return;
+    setCategories([newCategory, ...categories]);
+  }
+
   return (
     <>
         <h1>GifApp</h1>
-        <button onClick={handleOnAddCategory}> Agregar </button>
+        
+        <AddCategory onNewCategory={ (value) => onAddCategory(value) }
+        //onAddCategory={setCategories} 
+        />
+
+        {/* <button onClick={handleOnAddCategory}> Agregar </button> */}
         <ol>
           { 
             categories.map( category => { return <li key={category}> { category }</li>} ) 
