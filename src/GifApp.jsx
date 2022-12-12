@@ -21,7 +21,6 @@ export const GifApp = () => {
         <h1>GifApp</h1>
         
         <AddCategory onNewCategory={ (value) => onAddCategory(value) }
-        //onAddCategory={setCategories} 
         />
 
         {/* <button onClick={handleOnAddCategory}> Agregar </button> */}
